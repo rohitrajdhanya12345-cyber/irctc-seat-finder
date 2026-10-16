@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seat Finder | Train Chart</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fc;color:#172747;font-family:Arial,sans-serif}
+header{background:#1555c0;color:white;padding:22px 18px;border-radius:0 0 22px 22px}
+header h1{margin:0;font-size:26px}
+header p{margin:7px 0 0;color:#dce8ff;font-size:14px}
+main{max-width:650px;margin:18px auto;padding:0 14px}
+.card{background:white;padding:18px;border-radius:17px;margin-bottom:15px;border:1px solid #e0e8f5;box-shadow:0 5px 18px #153b7210}
+h2{font-size:19px;margin:0 0 14px}
+label{display:block;font-size:13px;margin:12px 0 6px;color:#50617e}
+input{width:100%;padding:13px;border:1px solid #d5dfef;border-radius:10px;font-size:15px}
+button,.btn{display:block;width:100%;padding:14px;background:#155bd1;color:white;border:0;border-radius:11px;font-size:15px;font-weight:bold;text-align:center;text-decoration:none;margin-top:14px;cursor:pointer}
+.note{font-size:12px;color:#667590;line-height:1.6}
+.status{background:#fff3d8;color:#815500;padding:12px;border-radius:10px;font-size:13px;line-height:1.5}
+footer{text-align:center;color:#75819a;font-size:12px;padding:10px 18px 25px}
+</style>
+</head>
+<body>
+<header>
+<h1>🚆 Seat Finder</h1>
+<p>Train chart vacancy, made simple</p>
+</header>
+<main>
+<section class="card">
+<h2>Find Your Train</h2>
+<form id="searchForm">
+<label>Train number or name</label>
+<input id="train" placeholder="e.g. 12310 Rajdhani Express" required>
+<label>Journey date</label>
+<input id="date" type="date" required>
+<label>Boarding station</label>
+<input id="station" placeholder="e.g. NDLS" required>
+<button type="submit">Open Official Chart ↗</button>
+</form>
+</section>
+<section class="card">
+<h2>Seat Availability</h2>
+<div class="status">Live data is not connected yet. Open the official chart to verify current vacancy. We will add automatic data integration after confirming an authorized source.</div>
+<p class="note">This website does not currently fetch or display live berth availability. Never rely on sample data for travel decisions.</p>
+<a class="btn" href="https://www.irctc.co.in/online-charts/" target="_blank" rel="noopener">Visit IRCTC Chart</a>
+</section>
+<section class="card">
+<h2>Coming next</h2>
+<p class="note">✓ Clean train search<br>✓ Coach-wise berth map<br>✓ Vacant berth list<br>✓ Automatic data updates, when an authorized data source is available</p>
+</section>
+</main>
+<footer>Independent project · Not affiliated with IRCTC</footer>
+<script>
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+document.getElementById('searchForm').addEventListener('submit',function(e){
+e.preventDefault();
+window.open('https://www.irctc.co.in/online-charts/','_blank');
+});
+</script>
+</body>
+</html>
